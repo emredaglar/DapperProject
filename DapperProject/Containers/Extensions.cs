@@ -10,6 +10,7 @@ namespace DapperProject.Containers
         {
             services.AddScoped<DapperContext>();
             services.AddScoped<ICategoryRepository,CategoryRepository>();
+            services.AddScoped<IProductRepository,ProductRepository>();
             
         }
 

@@ -1,0 +1,27 @@
+﻿@using DapperProject.Dtos.ProductDtos
+@model GetByIdProductDto
+@{
+    Layout = null;
+}
+<link href="c:\users\user\source\repos\dapperproject\dapperproject\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <form method="post">
+        <br />
+        <br />
+        <input type="hidden" asp-for="ProductId" />
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+        <label>Ürün Fiyatı</label>
+        <input type="text" asp-for="ProductPrice" class="form-control" />
+        <br />
+        <label>Ürün Stok Sayısı</label>
+        <input type="text" asp-for="ProductStock" class="form-control" />
+        <br />
+        <label>Ürün Kategorisi</label>
+        <input type="text" asp-for="CategoryId" class="form-control" />
+        <br />
+        <br />
+        <button class="btn btn-primary">Ürün Ekle</button>
+    </form>
+</div>

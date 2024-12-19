@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperProject.Context;
+using DapperProject.Dtos;
 using DapperProject.Dtos.ProductDtos;
 
 namespace DapperProject.Repositories
@@ -42,7 +43,15 @@ namespace DapperProject.Repositories
 			return values.ToList();
 		}
 
-		public  async Task<GetByIdProductDto> GetByIdProductAsync(int id)
+        public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategory()
+        {
+            string query = "Select ProductId,ProductName,ProductStock,ProductPrice,CategoryName From Products Inner Join Categories On Products.CategoryId=Categories.CategoryId";
+            var connection = _context.CreateConnection();
+            var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
+            return values.ToList();
+        }
+
+        public  async Task<GetByIdProductDto> GetByIdProductAsync(int id)
 		{
 			string query = "Select * From Products Where ProductId=@productId";
 			var parameters=new DynamicParameters();

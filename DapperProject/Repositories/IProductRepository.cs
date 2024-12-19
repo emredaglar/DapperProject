@@ -1,4 +1,5 @@
-﻿using DapperProject.Dtos.ProductDtos;
+﻿using DapperProject.Dtos;
+using DapperProject.Dtos.ProductDtos;
 
 namespace DapperProject.Repositories
 {
@@ -9,5 +10,6 @@ namespace DapperProject.Repositories
 		Task UpdateProductAsync(UpdateProductDto updateProductDto);
 		Task DeleteProductAsync(int id);
 		Task<GetByIdProductDto> GetByIdProductAsync(int id);
+		Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategory();
 	}
 }
